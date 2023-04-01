@@ -1,0 +1,44 @@
+.navbar-offset-padding {
+    padding-top: 60px;
+}
+
+.treeNode {
+    width: fit-content;
+    cursor: pointer;
+    margin: 3px;
+}
+
+.treeNode:not(.root) {
+    margin-left: 21.6px;
+}
+
+.treeNode > div.h-0 {
+    max-height: 0px;
+    overflow: hidden;
+}
+
+.treeNode a {
+    white-space: pre;
+    border: 2px solid rgba(0, 0, 0, 0);
+    margin: 5px 0 5px 0;
+    color: gainsboro;
+    text-decoration: none;
+}
+
+.treeNode a:hover {
+    border: 2px solid cornflowerblue;
+}
+
+.treeNode a.selected {
+    background-color: darkblue;
+    color: white;
+}
+
+.treeNode a:active {
+    background-color: black;
+    color: #6e6cff !important;
+}
+
+.mh-200 {
+    max-height: 200px;
+}
