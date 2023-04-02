@@ -1,3 +1,9 @@
+html, body, #elmish-app {
+    width: 100vw;
+    height: 100vh;
+}
+
+
 .navbar-offset-padding {
     padding-top: 60px;
 }
@@ -5,4 +11,9 @@
 .message-area {
     padding: 3px;
     height: 75px;
+}
+
+textarea {
+    width: 100%;
+    height: 100%;
 }
