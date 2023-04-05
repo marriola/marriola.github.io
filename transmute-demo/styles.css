@@ -15,10 +15,15 @@ html, body, #elmish-app {
 
 textarea {
     width: 100%;
-    height: 100%;
 }
 
 .button-row {
     overflow-x: auto;
     white-space: nowrap;
+}
+
+@media (min-width: 768px) {
+    .mb-md-4 {
+        margin-bottom:1.5rem!important;
+    }
 }
