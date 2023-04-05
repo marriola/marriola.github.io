@@ -22,6 +22,15 @@ textarea {
     white-space: nowrap;
 }
 
+#toggleMessageArea {
+    font-size: 0.75rem;
+}
+
+#toggleMessageArea:hover {
+    background-color: darkslateblue;
+    color: gainsboro;
+}
+
 @media (min-width: 768px) {
     .mb-md-4 {
         margin-bottom:1.5rem!important;
