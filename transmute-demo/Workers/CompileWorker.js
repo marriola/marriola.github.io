@@ -4,9 +4,9 @@
 	else if(typeof define === 'function' && define.amd)
 		define([], factory);
 	else if(typeof exports === 'object')
-		exports["Biff"] = factory();
+		exports["CompileWorker"] = factory();
 	else
-		root["Biff"] = factory();
+		root["CompileWorker"] = factory();
 })(self, () => {
 return /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
@@ -42150,9 +42150,9 @@ var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be in strict mode.
 (() => {
 "use strict";
-/*!*****************************!*\
-  !*** ./src/Workers/Biff.fs ***!
-  \*****************************/
+/*!**************************************!*\
+  !*** ./src/Workers/CompileWorker.fs ***!
+  \**************************************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "compileRules": () => (/* binding */ compileRules),
@@ -42275,7 +42275,7 @@ const compileRules = (() => {
     const $arg$$3 = $arg$$4;
     value$$1 = resultCoder$$2.Encoder(($arg$$2 = $arg$$3, (f(($arg$$1 = $arg$$2, (argCoder$$2.Decoder((value = $arg$$1, (value)))))))));
     return value$$1;
-  }), "Biff");
+  }), "CompileWorker");
 })();
 })();
 
@@ -42283,4 +42283,4 @@ const compileRules = (() => {
 /******/ })()
 ;
 });
-//# sourceMappingURL=Biff.js.map
+//# sourceMappingURL=CompileWorker.js.map
