@@ -41121,15 +41121,15 @@ function buildStateMachine(features, sets, input, output, environment, showNfa) 
             }
         }
       };
-      const getNextState = function getNextState(state$$3) {
+      const getNextState = function getNextState(makeFinal, state$$3) {
         const patternInput = takeState(state$$3.states);
         const states$$1 = patternInput[0];
         const nextState$$2 = patternInput[1];
-        const nextState$$3 = NFAState$$get_AreAllSubtreesFinal(state$$3) ? (0,_State_fs__WEBPACK_IMPORTED_MODULE_0__.State$$$get_makeFinal)()(nextState$$2) : nextState$$2;
+        const nextState$$3 = (makeFinal ? NFAState$$get_AreAllSubtreesFinal(state$$3) : false) ? (0,_State_fs__WEBPACK_IMPORTED_MODULE_0__.State$$$get_makeFinal)()(nextState$$2) : nextState$$2;
         return [new NFAState(state$$3.current, states$$1, state$$3.currentNodes, state$$3.outputNodes, state$$3.transitions, state$$3.transformations, state$$3.currentSection, state$$3.inputPosition, state$$3.subtreePositionStack, state$$3.isPlaceholderNextStack), nextState$$3];
       };
       const matchCharacter = function matchCharacter(c) {
-        const patternInput$$1 = getNextState(state$$1);
+        const patternInput$$1 = getNextState(true, state$$1);
         const state$$4 = patternInput$$1[0];
         const next = patternInput$$1[1];
         const transitions = new _Transmute_Feliz_fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_1__.List([new _StateMachine_fs__WEBPACK_IMPORTED_MODULE_4__.Origin$00601(0, "From", state$$4.current), new _StateMachine_fs__WEBPACK_IMPORTED_MODULE_4__.InputSymbol(0, "OnChar", c), new _StateMachine_fs__WEBPACK_IMPORTED_MODULE_4__.Destination$00601(0, "To", next)], state$$4.transitions);
@@ -41140,11 +41140,11 @@ function buildStateMachine(features, sets, input, output, environment, showNfa) 
         return matchCharacter(boundaryChar);
       };
       const addFeatureTransformations = function addFeatureTransformations(transition, transformations, features$$1, depth, originalSegment) {
-        const addFeatureTransformations$0027 = function addFeatureTransformations$0027($transformations$$1$$38, $features$$2$$39, $segment$$40) {
+        const addFeatureTransformations$0027 = function addFeatureTransformations$0027($transformations$$1$$39, $features$$2$$40, $segment$$41) {
           addFeatureTransformations$0027: while (true) {
-            const transformations$$1 = $transformations$$1$$38,
-              features$$2 = $features$$2$$39,
-              segment = $segment$$40;
+            const transformations$$1 = $transformations$$1$$39,
+              features$$2 = $features$$2$$40,
+              segment = $segment$$41;
             if (features$$2.tail != null) {
               if (features$$2.head.tag === 4) {
                 const isPresent = features$$2.head.fields[0];
@@ -41159,9 +41159,9 @@ function buildStateMachine(features, sets, input, output, environment, showNfa) 
                 const table = searchMap;
                 option = (0,_Transmute_Feliz_fable_fable_library_2_13_0_Map_js__WEBPACK_IMPORTED_MODULE_8__.tryFind)(segment, table);
                 nextValue = (0,_Transmute_Feliz_fable_fable_library_2_13_0_Option_js__WEBPACK_IMPORTED_MODULE_10__.defaultArg)(option, segment);
-                $transformations$$1$$38 = transformations$$1;
-                $features$$2$$39 = rest$$2;
-                $segment$$40 = nextValue;
+                $transformations$$1$$39 = transformations$$1;
+                $features$$2$$40 = rest$$2;
+                $segment$$41 = nextValue;
                 continue addFeatureTransformations$0027;
               } else {
                 throw new Error("The match cases were incomplete against type of 'List' at C:/Users/azath/Documents/Visual Studio 2019/Projects/Transmute/TransmuteLib/RuleCompiler.fs");
@@ -41179,22 +41179,22 @@ function buildStateMachine(features, sets, input, output, environment, showNfa) 
         return addFeatureTransformations$0027(transformations, features$$1, originalSegment);
       };
       const matchUtterance = function matchUtterance(utterance) {
-        const matchUtterance$0027 = function matchUtterance$0027($inputChars$$42, $output$$1$$43, $innerState$$44) {
+        const matchUtterance$0027 = function matchUtterance$0027($inputChars$$43, $output$$1$$44, $innerState$$45) {
           var s, features$$3;
           matchUtterance$0027: while (true) {
-            const inputChars = $inputChars$$42,
-              output$$1 = $output$$1$$43,
-              innerState = $innerState$$44;
+            const inputChars = $inputChars$$43,
+              output$$1 = $output$$1$$44,
+              innerState = $innerState$$45;
             if (inputChars.tail != null) {
               const xs$$3 = inputChars.tail;
               const c$$1 = inputChars.head;
-              const patternInput$$4 = getNextState(innerState);
+              const patternInput$$4 = getNextState((0,_Transmute_Feliz_fable_fable_library_2_13_0_Util_js__WEBPACK_IMPORTED_MODULE_5__.equals)(xs$$3, new _Transmute_Feliz_fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_1__.List()), innerState);
               const nextNfaState = patternInput$$4[0];
               const next$$1 = patternInput$$4[1];
               const transitions$$1 = new _Transmute_Feliz_fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_1__.List([new _StateMachine_fs__WEBPACK_IMPORTED_MODULE_4__.Origin$00601(0, "From", innerState.current), new _StateMachine_fs__WEBPACK_IMPORTED_MODULE_4__.InputSymbol(0, "OnChar", c$$1), new _StateMachine_fs__WEBPACK_IMPORTED_MODULE_4__.Destination$00601(0, "To", next$$1)], innerState.transitions);
-              $inputChars$$42 = xs$$3;
-              $output$$1$$43 = output$$1;
-              $innerState$$44 = new NFAState(next$$1, nextNfaState.states, nextNfaState.currentNodes, nextNfaState.outputNodes, transitions$$1, nextNfaState.transformations, nextNfaState.currentSection, nextNfaState.inputPosition, nextNfaState.subtreePositionStack, nextNfaState.isPlaceholderNextStack);
+              $inputChars$$43 = xs$$3;
+              $output$$1$$44 = output$$1;
+              $innerState$$45 = new NFAState(next$$1, nextNfaState.states, nextNfaState.currentNodes, nextNfaState.outputNodes, transitions$$1, nextNfaState.transformations, nextNfaState.currentSection, nextNfaState.inputPosition, nextNfaState.subtreePositionStack, nextNfaState.isPlaceholderNextStack);
               continue matchUtterance$0027;
             } else {
               const patternInput$$3 = giveOutput(innerState);
@@ -41212,24 +41212,24 @@ function buildStateMachine(features, sets, input, output, environment, showNfa) 
       };
       const matchSet = function matchSet(setDesc) {
         var setDescriptor;
-        const patternInput$$5 = getNextState(state$$1);
+        const patternInput$$5 = getNextState(true, state$$1);
         const terminator = patternInput$$5[1];
         const state$$5 = patternInput$$5[0];
         const matchSet$0027 = function matchSet$0027(state$$6, tree) {
-          var $target$$48, children;
+          var $target$$49, children;
           switch (tree.tag) {
             case 0:
-              $target$$48 = 1;
+              $target$$49 = 1;
               children = tree.fields[0];
               break;
             case 1:
-              $target$$48 = 1;
+              $target$$49 = 1;
               children = tree.fields[2];
               break;
             default:
-              $target$$48 = 0;
+              $target$$49 = 0;
           }
-          switch ($target$$48) {
+          switch ($target$$49) {
             case 0:
               {
                 return state$$6;
@@ -41288,7 +41288,7 @@ function buildStateMachine(features, sets, input, output, environment, showNfa) 
       };
       const matchOptional = function matchOptional(nodes) {
         var inputPosition$$1, subtreePositionStack$$3;
-        const patternInput$$8 = getNextState(state$$1);
+        const patternInput$$8 = getNextState(true, state$$1);
         const terminator$$1 = patternInput$$8[1];
         const state$$8 = patternInput$$8[0];
         const nextState$$8 = buildStateMachine$0027((inputPosition$$1 = new InputPosition(1, "InputNoninitial"), (subtreePositionStack$$3 = new _Transmute_Feliz_fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_1__.List(new SubtreePosition(0, "SubtreeNonfinal"), state$$8.subtreePositionStack), new NFAState(state$$8.current, state$$8.states, nodes, state$$8.outputNodes, state$$8.transitions, state$$8.transformations, state$$8.currentSection, inputPosition$$1, subtreePositionStack$$3, state$$8.isPlaceholderNextStack))));
@@ -41306,7 +41306,7 @@ function buildStateMachine(features, sets, input, output, environment, showNfa) 
         }
       };
       const matchDisjunct = function matchDisjunct(branches) {
-        const patternInput$$9 = getNextState(state$$1);
+        const patternInput$$9 = getNextState(true, state$$1);
         const terminator$$2 = patternInput$$9[1];
         const state$$9 = patternInput$$9[0];
         const out = (0,_Transmute_Feliz_fable_fable_library_2_13_0_List_js__WEBPACK_IMPORTED_MODULE_6__.foldBack)(matchDisjunctBranch, branches, new _Transmute_Feliz_fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_1__.List(state$$9, new _Transmute_Feliz_fable_fable_library_2_13_0_Types_js__WEBPACK_IMPORTED_MODULE_1__.List()));
