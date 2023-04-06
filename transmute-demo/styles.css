@@ -31,6 +31,10 @@ textarea {
     color: gainsboro;
 }
 
+.transitionTable {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
 @media (min-width: 768px) {
     .mb-md-4 {
         margin-bottom:1.5rem!important;
@@ -41,4 +45,5 @@ textarea {
     #txtTransitionTable {
         font-size: 0.85rem;
     }
+
 }
