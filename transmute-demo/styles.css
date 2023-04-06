@@ -22,11 +22,11 @@ textarea {
     white-space: nowrap;
 }
 
-#toggleMessageArea {
+#toggleNotificationArea {
     font-size: 0.75rem;
 }
 
-#toggleMessageArea:hover {
+#toggleNotificationArea:hover {
     background-color: darkslateblue;
     color: gainsboro;
 }
