@@ -9,7 +9,7 @@ html, body, #elmish-app {
 }
 
 .monospace {
-    font-family: "Lucida Console", "Cascadia Mono", "Consolas", monospace;
+    font-family: "Noto Sans Mono", "Lucida Console", "Cascadia Mono", "Consolas", monospace;
 }
 
 .message-area {
