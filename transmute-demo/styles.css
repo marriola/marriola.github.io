@@ -8,6 +8,10 @@ html, body, #elmish-app {
     padding-top: 60px;
 }
 
+.monospace {
+    font-family: "Lucida Console", "Cascadia Mono", "Consolas", monospace;
+}
+
 .message-area {
     padding: 3px;
     height: 75px;
@@ -24,11 +28,12 @@ textarea {
 
 #toggleNotificationArea {
     font-size: 0.75rem;
+    color: lightgrey;
 }
 
 #toggleNotificationArea:hover {
-    background-color: darkslateblue;
-    color: gainsboro;
+    background-color: rgb(46, 39, 90);
+    color: white;
 }
 
 .transitionTable {
